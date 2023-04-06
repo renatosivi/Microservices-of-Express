@@ -3,10 +3,10 @@ const cors = require('cors');
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  host: 'mysql-test',
+  host: 'mysql1',
   user: 'root',
   password: '123456',
-  database: 'activity5'
+  database: 'db'
 });
 
 connection.connect(err => {
@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/cliente/tipos', (_req, res) => {
-  connection.query('SELECT * FROM customerTypes;', (_err, result) => {
+  connection.query('SELECT * FROM tiposdeclientes;', (_err, result) => {
     res.send(result);
   });
 });
